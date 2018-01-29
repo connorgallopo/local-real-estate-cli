@@ -2,11 +2,21 @@ require 'open-uri'
 require 'pry'
 require 'nokogiri'
 
-class LocalRealEstate::Scraper
+#Each Indoc.css('.srp-item-body')
 
-  def get_page(zip_code = "02359") #this needs to be fixed. If zip starts with zero its lost with .to_i
-    html = open("https://www.realtor.com/realestateandhomes-search/#{zip_code.to_i}")
-    doc = Nokogiri::HTML(html)
-    binding.pry
+class LocalRealEstate::Scraper
+  attr_accessor :zip
+
+  def initialize(zip)
+    @zip = zip
   end
+
+  def get_page #this needs to be fixed. If zip starts with zero its lost with .to_i
+    Nokogiri::HTML(open("https://www.realtor.com/realestateandhomes-search/#{@zip}"))
+  end
+
+  def scrape_listings
+    self.get_page.css('.srp-item-body')
+  end
+
 end

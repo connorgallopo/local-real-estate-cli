@@ -18,14 +18,23 @@ class LocalRealEstate::CLI
     unless input == 'exit'
       case input
       when '1'
-        puts "enter your zip"
-        zip_code = gets.strip
-        LocalRealEstate::Scraper.new.get_page(zip_code)
+        zip_method
       when '2'
         #list_cities (possibly a method that lists available cities?)
       when '3'
         #list_cities.sample (if list cities holds an array we can sample it to randomize)
       end
     end
+  end
+  
+  def zip_method
+    puts "enter your zip"
+    zip_code = gets.strip
+    listings = LocalRealEstate::Scraper.new(zip_code)
+    puts listings.scrape_listings.text
+  end
+
+  def goodbye
+    puts "See you next time"
   end
 end
