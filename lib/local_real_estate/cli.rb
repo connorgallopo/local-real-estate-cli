@@ -15,16 +15,17 @@ class LocalRealEstate::CLI
     puts 'If you would like to see listings in a random city press 3'
     puts 'Or type "exit"'
     input = gets.strip.downcase
-      unless input == "exit"
-        case input
-        when "1"
-          puts "enter your zip"
-          zip_code = gets.strip
-        when "2"
-          #list_cities (possibly a method that lists available cities?)
-        when "3"
-          #list_cities.sample (if list cities holds an array we can sample it to randomize)
-        end
+    unless input == 'exit'
+      case input
+      when '1'
+        puts "enter your zip"
+        zip_code = gets.strip
+        LocalRealEstate::Scraper.new.get_page(zip_code)
+      when '2'
+        #list_cities (possibly a method that lists available cities?)
+      when '3'
+        #list_cities.sample (if list cities holds an array we can sample it to randomize)
       end
     end
+  end
 end
