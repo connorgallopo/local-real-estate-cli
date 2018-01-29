@@ -11,4 +11,5 @@ require "local_real_estate"
 # Pry.start
 
 require "irb"
-IRB.start(__FILE__)
+# IRB.start(__FILE__)
+LocalRealEstate::CLI.new.call
