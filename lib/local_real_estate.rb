@@ -4,11 +4,6 @@
 
 require "local_real_estate/version"
 require "local_real_estate/cli"
-
-
-# module LocalRealEstate
-#   # Your code goes here...
-# end
-
+require "local_real_estate/scraper"
 
 #this is working as my enviornment file

@@ -1,0 +1,3 @@
+class LocalRealEstate::Scraper
+
+end
