@@ -19,4 +19,13 @@ class LocalRealEstate::Scraper
     self.get_page.css('.srp-item-body')
   end
 
+  def create_listings
+    scrape_listings.each_with_index do |object, index|
+      one = LocalRealEstate::Listing.new(
+        address:object.css('.srp-item-address')
+        )
+      binding.pry
+    end
+  end
+
 end

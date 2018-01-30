@@ -5,7 +5,7 @@ class LocalRealEstate::CLI
   end
 
   def greeting
-    puts "Welcome"
+    puts 'Welcome'
   end
 
   def menu
@@ -20,21 +20,21 @@ class LocalRealEstate::CLI
       when '1'
         zip_method
       when '2'
-        #list_cities (possibly a method that lists available cities?)
+        # list_cities (possibly a method that lists available cities?)
       when '3'
-        #list_cities.sample (if list cities holds an array we can sample it to randomize)
+        # list_cities.sample (if list cities holds an array we can sample it to randomize)
       end
     end
   end
   
   def zip_method
-    puts "enter your zip"
+    puts 'enter your zip'
     zip_code = gets.strip
     listings = LocalRealEstate::Scraper.new(zip_code)
-    puts listings.scrape_listings.text
+    listings.create_listings
   end
 
   def goodbye
-    puts "See you next time"
+    puts 'See you next time'
   end
 end
