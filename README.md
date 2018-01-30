@@ -24,7 +24,7 @@ Type the following and follow the on screen prompts.
 
   NOTE: local_real_estate only accepts US 5-digit zip codes.
 
-    $ worlds-best-restaurants
+    $ local_real_estate
 
 
 ## Development
