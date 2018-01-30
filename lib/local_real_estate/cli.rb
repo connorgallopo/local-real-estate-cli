@@ -5,7 +5,10 @@ class LocalRealEstate::CLI
   end
 
   def greeting
-    puts 'Welcome'
+    puts '/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/'
+    puts 'Welcome to the Local Real Estate Listing app'
+    puts 'This will display local real estate listings by zip code and allow you to see expanded details on each listing'
+    puts ''
   end
 
   # def menu
@@ -30,9 +33,7 @@ class LocalRealEstate::CLI
   # end
 
   def menu
-    puts 'To get started please type in the Zip code in which you would like to search'
-    zip_method
-    print_listings
+    new_search
     puts 'To see more info on a listing, please select a number from the list above:'
     selection = gets.strip
     detailed_view(selection)
@@ -41,9 +42,15 @@ class LocalRealEstate::CLI
       if input == "back"
         print_listings
       elsif input == "new"
-        zip_method
-        print_listings
+        new_search
       end
+  end
+
+  def new_search
+    LocalRealEstate::Listing.all.clear
+    puts 'Please type in the Zip code in which you would like to search'
+    zip_method
+    print_listings
   end
 
   def detailed_view(selection)
@@ -56,7 +63,6 @@ class LocalRealEstate::CLI
   end
   
   def zip_method
-    puts 'enter your zip'
     zip_code = gets.strip
     listings = LocalRealEstate::Scraper.new(zip_code)
     listings.create_listings

@@ -21,7 +21,7 @@ class LocalRealEstate::Scraper
 
   def create_listings
     scrape_listings.each_with_index do |object, index|
-        one = LocalRealEstate::Listing.new(
+      LocalRealEstate::Listing.new(
         address: object.css('.listing-street-address').text.strip,
         city: object.css('.listing-city').text,
         state: object.css('.listing-region').text,
@@ -30,7 +30,11 @@ class LocalRealEstate::Scraper
         bathrooms: object.css("ul li[data-label='property-meta-baths']").text,
         sqft: object.css("ul li[data-label='property-meta-sqft']").text,
         cars: object.css("ul li[data-label='property-meta-garage']").text
-        )
+      )
     end
+  end
+
+  def expand_listing(index)
+    LocalRealEstate::Listing
   end
 end
