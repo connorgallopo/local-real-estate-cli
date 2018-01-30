@@ -17,12 +17,13 @@ class LocalRealEstate::CLI
   end
 
   def detail_menu
+    print_listings
     puts 'To see more info on a listing, please select a number from the list above:'
     detailed_view(gets.strip) #this is breaking the recursion
     puts 'To go back to the previous list type "back". Or "new" to start a new search by zip. To quit, type "exit"'
     input = gets.strip.downcase
       if input == "back"
-        print_listings
+        detail_menu
       elsif input == "new"
         menu
       elsif input == "exit"
@@ -34,22 +35,21 @@ class LocalRealEstate::CLI
     LocalRealEstate::Listing.all.clear
     puts 'Please type in the Zip code in which you would like to search'
     zip_method
-    print_listings
   end
 
   def detailed_view(selection)
     home = LocalRealEstate::Listing.all[selection.to_i - 1]
+    puts "--------------------------------"
     puts "Address: #{home.address}. #{home.city},#{home.state}."
     puts "Price: #{home.price}"
     puts "#{home.bedrooms}, #{home.bathrooms}"
     puts "Size: #{home.sqft}"
     puts "Garage: #{home.cars}"
+    puts "--------------------------------"
   end
   
   def zip_method
-    zip_code = gets.strip
-    listings = LocalRealEstate::Scraper.new(zip_code)
-    listings.create_listings
+    LocalRealEstate::Scraper.new(gets.strip).create_listings
   end
 
   def print_listings
@@ -58,7 +58,6 @@ class LocalRealEstate::CLI
       puts "#{i+1}. #{listing.address} - #{listing.bedrooms} #{listing.price}"
     end
     puts "-------------------------------------------"
-    detail_menu
   end
 
   def goodbye
