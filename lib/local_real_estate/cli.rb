@@ -19,6 +19,8 @@ class LocalRealEstate::CLI
       case input
       when '1'
         zip_method
+        print_listings
+        goodbye
       when '2'
         # list_cities (possibly a method that lists available cities?)
       when '3'
@@ -32,6 +34,13 @@ class LocalRealEstate::CLI
     zip_code = gets.strip
     listings = LocalRealEstate::Scraper.new(zip_code)
     listings.create_listings
+  end
+
+  def print_listings
+    puts "---------- Local Listings ----------"
+    LocalRealEstate::Listing.all.each do |listing|
+      puts "#{listing.address} - #{listing.bedrooms} #{listing.price}"
+    end
   end
 
   def goodbye

@@ -21,14 +21,14 @@ class LocalRealEstate::Scraper
 
   def create_listings
     scrape_listings.each_with_index do |object, index|
-      one = LocalRealEstate::Listing.new(
+        one = LocalRealEstate::Listing.new(
         address: object.css('.srp-item-address').text.strip,
         price: object.css('.srp-item-price').text.strip,
         bedrooms: object.css("ul li[data-label='property-meta-beds']").text,
         bathrooms: object.css("ul li[data-label='property-meta-baths']").text,
-        sqft: object.css("ul li[data-label='property-meta-sqft']").text
+        sqft: object.css("ul li[data-label='property-meta-sqft']").text,
+        cars: object.css("ul li[data-label='property-meta-garage']").text
         )
-      binding.pry
     end
   end
 end
