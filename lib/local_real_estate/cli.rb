@@ -6,6 +6,7 @@ class LocalRealEstate::CLI
 
   def greeting
     puts '/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/'
+    puts ' /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/'
     puts 'Welcome to the Local Real Estate Listing app'
     puts 'This will display local real estate listings by zip code and allow you to see expanded details on each listing'
     puts ''
@@ -44,7 +45,8 @@ class LocalRealEstate::CLI
     puts "Price: #{home.price}"
     puts "Bedrooms:#{home.bedrooms}"
     puts "Bathrooms: #{home.bathrooms}"
-    puts "Size: #{home.sqft}"
+    puts "Square Feet: #{home.sqft}"
+    puts "Lot Size #{home.lot_size}"
     puts "Garage: #{home.cars}"
     puts '-------------------------------------------'
   end

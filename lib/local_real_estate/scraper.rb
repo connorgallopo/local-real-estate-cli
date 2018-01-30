@@ -29,7 +29,8 @@ class LocalRealEstate::Scraper
         bedrooms: object.css("ul li[data-label='property-meta-beds']").text,
         bathrooms: object.css("ul li[data-label='property-meta-baths']").text,
         sqft: object.css("ul li[data-label='property-meta-sqft']").text,
-        cars: object.css("ul li[data-label='property-meta-garage']").text
+        cars: object.css("ul li[data-label='property-meta-garage']").text,
+        lot_size: object.css("ul li[data-label='property-meta-lotsize']").text
       )
     end
   end

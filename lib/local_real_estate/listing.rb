@@ -1,9 +1,9 @@
 class LocalRealEstate::Listing
 
-  attr_accessor :address, :city, :state, :url, :price, :bedrooms, :bathrooms, :sqft, :cars
+  attr_accessor :address, :city, :state, :url, :price, :bedrooms, :bathrooms, :sqft, :cars, :lot_size
   @@all = []
 
-  def initialize(address: nil, city: nil, state: nil, url: nil, price: nil, bedrooms: nil, bathrooms: nil, sqft: nil, cars: "none")
+  def initialize(address: nil, city: nil, state: nil, url: nil, price: nil, bedrooms: nil, bathrooms: nil, sqft: nil, cars: "none", lot_size: nil)
     @address = address
     @city = city
     @state = state
@@ -13,6 +13,7 @@ class LocalRealEstate::Listing
     @bathrooms = bathrooms
     @sqft = sqft
     @cars = cars
+    @lot_size = lot_size
     @@all << self
   end
 
