@@ -5,6 +5,8 @@ class LocalRealEstate::Listing
 
   def initialize(address: nil, city: nil, state: nil, url: nil, price: nil, bedrooms: nil, bathrooms: nil, sqft: nil, cars: nil)
     @address = address
+    @city = city
+    @state = state
     @url = url
     @price = price
     @bedrooms = bedrooms
@@ -16,5 +18,9 @@ class LocalRealEstate::Listing
 
   def self.all
     @@all
+  end
+
+  def self.current_city
+    @@all[0].city
   end
 end

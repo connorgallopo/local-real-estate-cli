@@ -37,9 +37,9 @@ class LocalRealEstate::CLI
   end
 
   def print_listings
-    puts "---------- Local Listings ----------"
-    LocalRealEstate::Listing.all.each do |listing|
-      puts "#{listing.address} - #{listing.bedrooms} #{listing.price}"
+    puts "----------Listings in #{LocalRealEstate::Listing.current_city}----------"
+    LocalRealEstate::Listing.all.each_with_index do |listing, i|
+      puts "#{i+1}. #{listing.address} - #{listing.bedrooms} #{listing.price}"
     end
   end
 

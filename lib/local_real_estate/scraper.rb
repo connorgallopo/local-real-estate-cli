@@ -31,8 +31,6 @@ class LocalRealEstate::Scraper
         sqft: object.css("ul li[data-label='property-meta-sqft']").text,
         cars: object.css("ul li[data-label='property-meta-garage']").text
         )
-        binding.pry
     end
   end
 end
-object.css(".listing-street-address")
