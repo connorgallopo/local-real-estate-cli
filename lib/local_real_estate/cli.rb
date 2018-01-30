@@ -23,11 +23,12 @@ class LocalRealEstate::CLI
     detailed_view(gets.strip)
     puts 'To go back to the previous list type "back". Or "new" to start a new search by zip. To quit, type "exit"'
     input = gets.strip.downcase
-    if input == 'back'
+    case input
+    when 'back'
       detail_menu
-    elsif input == 'new'
+    when 'new'
       menu
-    elsif input == 'exit'
+    when 'exit'
       goodbye
     else 
       invalid_input
@@ -47,8 +48,8 @@ class LocalRealEstate::CLI
     puts "Price: #{home.price}"
     puts "Bedrooms:#{home.bedrooms}"
     puts "Bathrooms: #{home.bathrooms}"
-    unless home.sqft == "" thenputs "Square Feet: #{home.sqft}"
-    unless home.lot_size == "" then puts "Lot Size #{home.lot_size}"
+    unless home.sqft == "" then puts "Square Feet: #{home.sqft}" end
+    unless home.lot_size == "" then puts "Lot Size #{home.lot_size}" end
     unless home.cars == "" then puts "Garage: #{home.cars}" end
     puts '-------------------------------------------'
   end
@@ -66,7 +67,8 @@ class LocalRealEstate::CLI
   end
 
   def invalid_input
-    puts "Invalid input"
+    puts "Invalid input, exiting application"
+    goodbye
   end
 
   def goodbye
