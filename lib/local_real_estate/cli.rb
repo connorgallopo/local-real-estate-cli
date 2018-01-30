@@ -34,18 +34,20 @@ class LocalRealEstate::CLI
 
   def menu
     new_search
-    puts 'To see more info on a listing, please select a number from the list above:'
     detail_menu
   end
 
   def detail_menu
+    puts 'To see more info on a listing, please select a number from the list above:'
     detailed_view(gets.strip) #this is breaking the recursion
-    puts 'To go back to the previous list, type "back". Or type "new" to start a new search by zip.'
+    puts 'To go back to the previous list type "back". Or "new" to start a new search by zip. To quit, type "exit"'
     input = gets.strip.downcase
       if input == "back"
-        detail_menu
+        print_listings
       elsif input == "new"
         menu
+      elsif input == "exit"
+        goodbye
       end
   end
 
@@ -77,9 +79,11 @@ class LocalRealEstate::CLI
       puts "#{i+1}. #{listing.address} - #{listing.bedrooms} #{listing.price}"
     end
     puts "-------------------------------------------"
+    detail_menu
   end
 
   def goodbye
     puts 'See you next time'
+    return
   end
 end
