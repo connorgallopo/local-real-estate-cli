@@ -20,13 +20,29 @@ class LocalRealEstate::CLI
       when '1'
         zip_method
         print_listings
-        goodbye
       when '2'
         # list_cities (possibly a method that lists available cities?)
       when '3'
         # list_cities.sample (if list cities holds an array we can sample it to randomize)
       end
+      goodbye
     end
+  end
+
+  def menu
+    puts 'To get started please type in the Zip code in which you would like to search'
+    zip_method
+    print_listings
+    puts 'To see more info on a listing, please select a number from the list above:'
+  end
+
+  def detailed_view(selection)
+    home = LocalRealEstate::Listing.all[selection - 1]
+    puts "Address: #{home.address}. #{home.city},#{home.state}."
+    puts "Price: #{home.price}"
+    puts "#{home.bedrooms}, #{home.bathrooms}"
+    puts "Size: #{home.sqft}"
+    puts "Garage: #{home.cars}"
   end
   
   def zip_method
