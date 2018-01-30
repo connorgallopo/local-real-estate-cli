@@ -35,14 +35,17 @@ class LocalRealEstate::CLI
   def menu
     new_search
     puts 'To see more info on a listing, please select a number from the list above:'
-    selection = gets.strip
-    detailed_view(selection)
+    detail_menu
+  end
+
+  def detail_menu
+    detailed_view(gets.strip) #this is breaking the recursion
     puts 'To go back to the previous list, type "back". Or type "new" to start a new search by zip.'
     input = gets.strip.downcase
       if input == "back"
-        print_listings
+        detail_menu
       elsif input == "new"
-        new_search
+        menu
       end
   end
 
