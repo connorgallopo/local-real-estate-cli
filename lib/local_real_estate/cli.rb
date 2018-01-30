@@ -29,6 +29,8 @@ class LocalRealEstate::CLI
       menu
     elsif input == 'exit'
       goodbye
+    else 
+      invalid_input
     end
   end
 
@@ -45,9 +47,9 @@ class LocalRealEstate::CLI
     puts "Price: #{home.price}"
     puts "Bedrooms:#{home.bedrooms}"
     puts "Bathrooms: #{home.bathrooms}"
-    puts "Square Feet: #{home.sqft}"
-    puts "Lot Size #{home.lot_size}"
-    puts "Garage: #{home.cars}"
+    unless home.sqft == "" thenputs "Square Feet: #{home.sqft}"
+    unless home.lot_size == "" then puts "Lot Size #{home.lot_size}"
+    unless home.cars == "" then puts "Garage: #{home.cars}" end
     puts '-------------------------------------------'
   end
  
@@ -61,6 +63,10 @@ class LocalRealEstate::CLI
       puts "#{i + 1}. #{listing.address} - #{listing.bedrooms} #{listing.price}"
     end
     puts '-------------------------------------------'
+  end
+
+  def invalid_input
+    puts "Invalid input"
   end
 
   def goodbye
