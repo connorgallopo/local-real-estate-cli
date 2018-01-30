@@ -11,27 +11,6 @@ class LocalRealEstate::CLI
     puts ''
   end
 
-  # def menu
-  #   puts 'Please select from one of the following options below:'
-  #   puts 'If you would like to see the listings in your area by Zip Code press 1'
-  #   puts 'If you would like to see the listings by a major city press 2'
-  #   puts 'If you would like to see listings in a random city press 3'
-  #   puts 'Or type "exit"'
-  #   input = gets.strip.downcase
-  #   unless input == 'exit'
-  #     case input
-  #     when '1'
-  #       zip_method
-  #       print_listings
-  #     when '2'
-  #       # list_cities (possibly a method that lists available cities?)
-  #     when '3'
-  #       # list_cities.sample (if list cities holds an array we can sample it to randomize)
-  #     end
-  #     goodbye
-  #   end
-  # end
-
   def menu
     new_search
     detail_menu
@@ -84,6 +63,5 @@ class LocalRealEstate::CLI
 
   def goodbye
     puts 'See you next time'
-    return
   end
 end
