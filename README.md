@@ -1,8 +1,6 @@
 # LocalRealEstate
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/local_real_estate`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby Gem will allow you to search for real estate for sale by zip code and learn about each listing.
 
 ## Installation
 
@@ -22,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the following and follow the on screen prompts.
+
+  NOTE: local_real_estate only accepts US 5-digit zip codes.
+
+    $ worlds-best-restaurants
+
 
 ## Development
 
