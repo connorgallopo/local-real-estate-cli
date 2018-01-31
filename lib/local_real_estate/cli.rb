@@ -5,10 +5,12 @@ class LocalRealEstate::CLI
   end
 
   def greeting
-    puts '/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/'
-    puts ' /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/'
+    system "clear"
+    puts '-------------------------------------------'
+    puts '-------------------------------------------'
     puts 'Welcome to the Local Real Estate Listing app'
-    puts 'This will display local real estate listings by zip code and allow you to see expanded details on each listing'
+    puts 'This will display local real estate listings by'
+    puts 'zip code and allow you to see expanded details on each listing'
     puts ''
   end
 
