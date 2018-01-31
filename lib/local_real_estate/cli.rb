@@ -5,7 +5,7 @@ class LocalRealEstate::CLI
   end
 
   def greeting
-    system "clear"
+    system 'clear'
     puts '-------------------------------------------'
     puts '-------------------------------------------'
     puts 'Welcome to the Local Real Estate Listing app'
@@ -50,9 +50,9 @@ class LocalRealEstate::CLI
     puts "Price: #{home.price}"
     puts "Bedrooms:#{home.bedrooms}"
     puts "Bathrooms: #{home.bathrooms}"
-    unless home.sqft == "" then puts "Square Feet: #{home.sqft}" end
-    unless home.lot_size == "" then puts "Lot Size #{home.lot_size}" end
-    unless home.cars == "" then puts "Garage: #{home.cars}" end
+    unless home.sqft == '' then puts "Square Feet: #{home.sqft}" end
+    unless home.lot_size == '' then puts "Lot Size #{home.lot_size}" end
+    unless home.cars == '' then puts "Garage: #{home.cars}" end
     puts '-------------------------------------------'
   end
  
