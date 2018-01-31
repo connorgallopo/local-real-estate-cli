@@ -67,8 +67,11 @@ class LocalRealEstate::CLI
   end
 
   def invalid_input
-    puts "Invalid input, exiting application"
-    goodbye
+    puts ' -  -  -  -  -  -  -  -  -  -  -  -  - '
+    puts 'Input not recognized, please try again:'
+    puts ' -  -  -  -  -  -  -  -  -  -  -  -  - '
+    sleep 2
+    detail_menu
   end
 
   def goodbye

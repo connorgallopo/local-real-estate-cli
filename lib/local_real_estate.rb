@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 require 'local_real_estate/version'
 require 'local_real_estate/cli'
 require 'local_real_estate/scraper'

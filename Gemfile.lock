@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     local_real_estate (0.1.0)
+      nokogiri
 
 GEM
   remote: https://rubygems.org/
@@ -36,7 +37,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   local_real_estate!
-  nokogiri
   pry
   rake (~> 10.0)
   rspec (~> 3.0)
